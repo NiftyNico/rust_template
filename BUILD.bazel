@@ -1,0 +1,27 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
+load("@crates//:defs.bzl", "all_crate_deps")
+
+rust_library(
+    name = "lib",
+    srcs = glob(["src/**/*.rs"], exclude = ["src/main.rs"]),
+    edition = "2025",
+    visibility = ["//visibility:public"],
+    deps = all_crate_deps(),
+)
+
+rust_test(
+    name = "lib_test",
+    crate = ":lib",
+)
+
+rust_binary(
+    name = "main",
+    srcs = ["src/main.rs"],
+    edition = "2025",
+    deps = [":lib"] + all_crate_deps(),
+)
+
+rust_test(
+    name = "main_test",
+    crate = ":main",
+)
