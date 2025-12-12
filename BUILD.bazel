@@ -4,7 +4,7 @@ load("@crates//:defs.bzl", "all_crate_deps")
 rust_library(
     name = "lib",
     srcs = glob(["src/**/*.rs"], exclude = ["src/main.rs"]),
-    edition = "2025",
+    edition = "2024",
     visibility = ["//visibility:public"],
     deps = all_crate_deps(),
 )
@@ -17,7 +17,7 @@ rust_test(
 rust_binary(
     name = "main",
     srcs = ["src/main.rs"],
-    edition = "2025",
+    edition = "2024",
     deps = [":lib"] + all_crate_deps(),
 )
 
