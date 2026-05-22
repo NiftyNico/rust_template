@@ -4,9 +4,10 @@ load("@crates//:defs.bzl", "all_crate_deps")
 rust_library(
     name = "lib",
     srcs = glob(["src/**/*.rs"], exclude = ["src/main.rs"]),
-    edition = "2024",
+    compile_data = ["Cargo.toml"],
+    edition = "2021",
     visibility = ["//visibility:public"],
-    deps = all_crate_deps(),
+    deps = all_crate_deps(normal = True),
 )
 
 rust_test(
@@ -17,8 +18,9 @@ rust_test(
 rust_binary(
     name = "main",
     srcs = ["src/main.rs"],
-    edition = "2024",
-    deps = [":lib"] + all_crate_deps(),
+    compile_data = ["Cargo.toml"],
+    edition = "2021",
+    deps = [":lib"] + all_crate_deps(normal = True),
 )
 
 rust_test(

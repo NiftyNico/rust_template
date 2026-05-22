@@ -1,0 +1,9 @@
+# Common
+build --experimental_reuse_sandbox_directories
+build --jobs=auto
+
+# CI-specific (use with --config=ci)
+build:ci --compilation_mode=fastbuild
+build:ci --repository_cache=~/.cache/bazel-repo
+build:ci --color=yes
+test:ci --test_output=errors

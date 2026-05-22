@@ -3,14 +3,6 @@ name = "rust_template"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-name = "rust_template_lib"
-path = "src/lib.rs"
-
-[[bin]]
-name = "rust_template"
-path = "src/main.rs"
-
 [dependencies]
 axum = "0.7"
 tokio = { version = "1", features = ["full"] }
